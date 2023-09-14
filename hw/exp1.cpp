@@ -61,14 +61,20 @@ void q2()
     int n;
     cout<<"请输入n的值:";
     cin>>n;
-
+    long int repetation=0;
     clock_t start,end; 
     //累加法     
-    start=clock();
+    /*start=clock();
     cout<<"累加法结果为："<<Summation(n)<<endl;
     end=clock();
-    cout<<"使用累加法所使用的时间："<<double(end-start)/CLOCKS_PER_SEC<<" s"<<endl;
-
+    cout<<"使用累加法所使用的时间："<<double(end-start)/CLOCKS_PER_SEC<<" s"<<endl;*/
+    start=clock();
+    do{
+        repetation++;
+        Summation(n);
+    }while(clock()-start<1000); //若时间小于一秒,则重复执行
+    end=clock();
+    cout<<"使用累加法所使用的时间："<<(double(end-start)/CLOCKS_PER_SEC)/repetation<<" s"<<endl;
     //高斯法
     start=clock();
     cout<<"高斯法结果为："<<Gaussian(n)<<endl;
@@ -78,7 +84,7 @@ void q2()
 }
 
 int main(){
-    q1(); //执行第一题的函数
-    //q2(); //执行第二题的函数
+    //q1(); //执行第一题的函数
+    q2(); //执行第二题的函数
     return 0;
 }
