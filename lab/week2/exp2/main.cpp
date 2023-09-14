@@ -1,17 +1,14 @@
 #include <stdio.h>
-#include "SqList.h"
 #include <malloc.h>
-
+#include "SqList.h"
 int main(){
-    stu *student1;
-    student1=(stu*)malloc(sizeof(stu));
-    student1->num=30;
-    printf("%d\n",student1->num);
-
-    stu student2;//定义结构体变量
-    student2.num=13;
-    printf("%d\n",student2.num);
-
+    int num[8]={2,2,0,5,2,0,0,5};
+    int *p_num=num;
+    SqList *mylist;
+    InitList(mylist);
+    InsertList(mylist,p_num,mylist->length);
+    DispList(mylist);
+    DestroyList(mylist);
 
     return 0;
 }

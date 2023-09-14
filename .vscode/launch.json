@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "f:/Coding/Data Structure & algorithm class",
-      "program": "f:/Coding/Data Structure & algorithm class/build/Debug/outDebug",
+      "cwd": "f:/Coding/Data Structure & algorithm class/lab/week2/exp2",
+      "program": "f:/Coding/Data Structure & algorithm class/lab/week2/exp2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
