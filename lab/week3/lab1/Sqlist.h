@@ -1,4 +1,4 @@
-#include<malloc.h>
+#include <stdlib.h>
 #define MaxSize 20
 #include<stdio.h>
 /**定义**/
@@ -75,9 +75,42 @@ void CreateList (SqList *&L,ElemType a[],int n){
     L->length=n;
 }
 
+//初始化
+bool ListInit(SqList *&L){
+    int size;
+    ElemType Elem[MaxSize];
+    printf("请输入所输入顺序表的长度(<= %d )\n",MaxSize);
+    scanf("%d",&size);
+    if(size>MaxSize){
+        printf("大小超过 %d !请重新输入!",MaxSize);
+        return false;
+    }
+
+    printf("请输入长度为 %d 的数据\n",size);
+    for(int i=0;i<size;i++){
+         scanf("%d",&(Elem[i])); 
+    }
+
+    CreateList(L,Elem,size);
+    return true;
+}
+
 //显示
 void DispList(SqList *L){
     for(int i=0;i<L->length;i++){
         printf("%4d",L->data[i]);
     }
+    printf("\n");
+}
+
+void DispMenu(){
+        printf("****************\n");
+        printf("0.创建顺序表\n");
+        printf("1.插入顺序表\n");
+        printf("2.删除顺序表\n");
+        printf("3.查看顺序表\n");
+        printf("4.退出程序\n");
+        printf("****************\n");
+        printf("请输入:");
+        
 }

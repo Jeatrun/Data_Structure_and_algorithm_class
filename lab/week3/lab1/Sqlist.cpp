@@ -1,10 +1,8 @@
 #include"Sqlist.h"
 
 int main(){
-    int A[10]={12,3,4,5,6,7,2,8,78,5};
-    SqList *L1;
-    /*CreateList(L1, A, 10);
-    DispList(L1);
+    SqList *L1=NULL;
+    /*DispList(L1);
     
     printf("\n");
     ListInsert(L1, 2, 45);
@@ -19,21 +17,67 @@ int main(){
     
     int choice;
     while(choice !=4){
-        printf("1.  \n");
-        printf("2.  \n");
-        printf("3.  \n");
-        printf("4.  \n");
-        printf("请输入:\n");
-
+        DispMenu();
+        scanf("%d",&choice);
         switch (choice) {
-            case 1:
+            case 0:
+                {
+                    if(L1!=NULL){
+                        printf("顺序表已存在!该顺序表为如下所示:\n");
+                        DispList(L1);
+                        system("pause");
+                        system("cls");
+                        break;
 
+                    }
+                    ListInit(L1);
+                    printf("创建成功,创建的顺序表如下:\n");
+                    DispList(L1);
+
+                    system("pause");
+                    system("cls");
+                }
+                break;
+            case 1:
+                {
+                    int insertNum,insertPos;
+
+                    printf("请输入要插入的位置:");
+                    scanf("%d",&insertPos);
+                    printf("请输入要插入的数值:");
+                    scanf("%d",&insertNum);
+                    ListInsert(L1,insertPos,insertNum);
+
+                    printf("插入成功,修改后的顺序表如下:\n");
+                    DispList(L1);
+                    
+                    system("pause");
+                    system("cls");
+                }
                 break;
             case 2:
+                {
+                    int delPos;
+                    ElemType delElem;
+                    printf("请输入要插入的位置:");
+                    scanf("%d",&delPos);   
+                    ListDelete(L1,delPos,delElem);
 
+                    printf("删除成功,修改后的顺序表如下:\n");
+                    DispList(L1);
+                    
+                    system("pause");
+                    system("cls");
+                }
                 break;
             case 3:
-
+                {
+                    printf("查询到的顺序表如下:\n");
+                    DispList(L1); 
+                    
+                    system("pause");
+                    system("cls");
+                }
                 break;    
         }
 
