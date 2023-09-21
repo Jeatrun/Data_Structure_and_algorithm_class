@@ -12,6 +12,12 @@ typedef struct{
 
 
 /**实现**/
+
+//销毁
+void DestoyList(SqList *&L){
+    free(L);
+
+}
 //删除i=>删除位置,e=>删除元素
 bool ListDelete(SqList *&L,int i,ElemType &e)
 {
