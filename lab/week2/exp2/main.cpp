@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <malloc.h>
 #include "SqList.h"
 int main(){
     int num[8]={2,2,0,5,2,0,0,5};

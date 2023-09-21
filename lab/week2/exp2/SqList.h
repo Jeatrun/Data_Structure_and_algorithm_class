@@ -1,5 +1,5 @@
 #define MaxSize 20
-
+#include <malloc.h>
 typedef struct  {
 
         int elem[MaxSize];
