@@ -16,6 +16,7 @@ int main(){
     return 0;*/
     
     int choice;
+    
     while(choice !=4){
         DispMenu();
         scanf("%d",&choice);
