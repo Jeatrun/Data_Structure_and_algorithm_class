@@ -1,34 +1,36 @@
 #include <stdlib.h>
 #define MaxSize 20
 #include<stdio.h>
-/**¶¨Òå**/
+/**å®šä¹‰**/
 typedef int ElemType;
 typedef struct{
+    // data array
     ElemType data[MaxSize];
+    // length of the list
     int length;
 
 }SqList;
 
 
 
-/**ÊµÏÖ**/
+/**å®ç°**/
 
-//Ïú»Ù
+//é”€æ¯
 void DestoyList(SqList *&L){
     free(L);
 
 }
-//É¾³ıi=>É¾³ıÎ»ÖÃ,e=>É¾³ıÔªËØ
+//åˆ é™¤i=>åˆ é™¤ä½ç½®,e=>åˆ é™¤å…ƒç´ 
 bool ListDelete(SqList *&L,int i,ElemType &e)
 {
-    //ÅĞ¶ÏiºÏ·¨ĞÔ
+    //åˆ¤æ–­iåˆæ³•æ€§
     if(i<0||i>L->length)
     {return false;}
 
-    //2.È¡ÔªËØ
+    //2.å–å…ƒç´ 
     e=L->data[i-1];
 
-    //3.ÒÆÎ»
+    //3.ç§»ä½
     for(int j=i-1;j<L->length-1;j++){
         L->data[j]=L->data[j+1];
     }
@@ -41,18 +43,18 @@ bool ListDelete(SqList *&L,int i,ElemType &e)
 
 }
 
-//²åÈë i=>²åÈëÎ»ÖÃ,e=>ÊäÈëÔªËØ
+//æ’å…¥ i=>æ’å…¥ä½ç½®,e=>è¾“å…¥å…ƒç´ 
 bool ListInsert(SqList *&L,int i,ElemType e){
-    //1.ÅĞ¶ÏÎ»ÖÃºÏ·¨ĞÔ
+    //1.åˆ¤æ–­ä½ç½®åˆæ³•æ€§
     if(i<1||i>L->length+1)
     {return false;}
     
-    //2.ÒÆÎ»
+    //2.ç§»ä½
     for(int j=L->length;j>=i;j--){
         L->data[j]=L->data[j-1];
     }
     
-    //3.¸³Öµ
+    //3.èµ‹å€¼
     L->data[i-1]=e;
 
     //4.length+1
@@ -61,9 +63,9 @@ bool ListInsert(SqList *&L,int i,ElemType e){
     return true;
 }
 
-//´´½¨,ÓÉÊı×éa[]´´½¨
+//åˆ›å»º,ç”±æ•°ç»„a[]åˆ›å»º
 void CreateList (SqList *&L,ElemType a[],int n){
-    //1.·ÖÅäÄÚ´æ
+    //1.åˆ†é…å†…å­˜
     L=(SqList*)malloc(sizeof(SqList));
 
     //2.a[i]===>L->data[i]
@@ -75,18 +77,19 @@ void CreateList (SqList *&L,ElemType a[],int n){
     L->length=n;
 }
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 bool ListInit(SqList *&L){
+    // åˆå§‹åŒ–ä¸€ä¸ªé¡ºåºè¡¨
     int size;
     ElemType Elem[MaxSize];
-    printf("ÇëÊäÈëËùÊäÈëË³Ğò±íµÄ³¤¶È(<= %d )\n",MaxSize);
+    printf("è¯·è¾“å…¥æ‰€è¾“å…¥é¡ºåºè¡¨çš„é•¿åº¦(<= %d )\n",MaxSize);
     scanf("%d",&size);
     if(size>MaxSize){
-        printf("´óĞ¡³¬¹ı %d !ÇëÖØĞÂÊäÈë!",MaxSize);
+        printf("å¤§å°è¶…è¿‡ %d !è¯·é‡æ–°è¾“å…¥!",MaxSize);
         return false;
     }
 
-    printf("ÇëÊäÈë³¤¶ÈÎª %d µÄÊı¾İ\n",size);
+    printf("è¯·è¾“å…¥é•¿åº¦ä¸º %d çš„æ•°æ®\n",size);
     for(int i=0;i<size;i++){
          scanf("%d",&(Elem[i])); 
     }
@@ -95,22 +98,26 @@ bool ListInit(SqList *&L){
     return true;
 }
 
-//ÏÔÊ¾
+//æ˜¾ç¤º
+//Displays the elements of a list
 void DispList(SqList *L){
+    //Loop through the list
     for(int i=0;i<L->length;i++){
+        //Print the element at the current index
         printf("%4d",L->data[i]);
     }
+    //Print a new line
     printf("\n");
 }
 
 void DispMenu(){
         printf("****************\n");
-        printf("0.´´½¨Ë³Ğò±í\n");
-        printf("1.²åÈëË³Ğò±í\n");
-        printf("2.É¾³ıË³Ğò±í\n");
-        printf("3.²é¿´Ë³Ğò±í\n");
-        printf("4.ÍË³ö³ÌĞò\n");
+        printf("0.åˆ›å»ºé¡ºåºè¡¨\n");
+        printf("1.æ’å…¥é¡ºåºè¡¨\n");
+        printf("2.åˆ é™¤é¡ºåºè¡¨\n");
+        printf("3.æŸ¥çœ‹é¡ºåºè¡¨\n");
+        printf("4.é€€å‡ºç¨‹åº\n");
         printf("****************\n");
-        printf("ÇëÊäÈë:");
+        printf("è¯·è¾“å…¥:");
         
 }
