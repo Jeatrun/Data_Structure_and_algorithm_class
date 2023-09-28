@@ -1,5 +1,5 @@
 #include"Sqlist.h"
-
+#include "Student.h"
 int main(){
     SqList *L1=NULL;
     /*DispList(L1);
@@ -47,10 +47,15 @@ int main(){
                     scanf("%d",&insertPos);
                     printf("请输入要插入的数值:");
                     scanf("%d",&insertNum);
-                    ListInsert(L1,insertPos,insertNum);
+                    if (ListInsert(L1,insertPos,insertNum)){
+                        printf("插入成功,修改后的顺序表如下:\n");
+                        DispList(L1);
+                    }
+                    else{
+                        printf("插入错误,请重新插入");
+                    }
 
-                    printf("插入成功,修改后的顺序表如下:\n");
-                    DispList(L1);
+                   
                     
                     system("pause");
                     system("cls");
@@ -79,7 +84,9 @@ int main(){
                     system("pause");
                     system("cls");
                 }
-                break;    
+                break;
+            default:
+                printf("无效选择,请重新输入！");
         }
 
 

@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "f:/Coding/Data Structure & algorithm class/lab/week3/lab1",
-      "program": "f:/Coding/Data Structure & algorithm class/lab/week3/lab1/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/workspace/Data_Structure_and_algorithm_class/lab/week4",
+      "program": "/workspace/Data_Structure_and_algorithm_class/lab/week4/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

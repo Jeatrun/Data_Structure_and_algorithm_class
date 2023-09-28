@@ -3,6 +3,7 @@
 #include<stdio.h>
 /**定义**/
 typedef int ElemType;
+//typedef char ElemType;
 typedef struct{
     // data array
     ElemType data[MaxSize];
