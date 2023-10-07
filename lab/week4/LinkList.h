@@ -1,3 +1,5 @@
+#include <cstddef>
+#include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXSIZE 100
@@ -48,4 +50,92 @@ void DispList(LinkNode *L)
         printf("%4d ", p->data);
         p = p->next;
     }
+    printf("\n");
+}
+
+// delete
+void DeleteList(LinkNode *&L)
+{
+    LinkNode *p = L;
+    while (p != NULL)
+    {
+        free(L);
+        L = p->next;
+        free(p);
+        p = L;
+    }
+}
+//length
+int ListLength(LinkNode *L)
+{
+    int n=0;
+    LinkNode *p = L;
+    while (p->next != NULL)
+    {
+        n++;
+        p = p->next;
+    }
+    return n;
+}
+//get
+bool GetElem(LinkNode *L, int i,ElemType &e)
+{
+    int j = 0;
+    LinkNode *p = L;
+    while (p != NULL && j < i)
+    {
+        j++;
+        p = p->next;
+    }
+    if (p == NULL)
+        return false;
+    else
+        e = p->data;
+
+        return true;
+    
+}
+
+//find/locate
+int LocateElem(LinkNode *L, ElemType e){
+    int i=1;
+    LinkNode *p=L->next;
+    while(p!=NULL&&p->data!=e){
+        i++;
+        p=p->next;
+
+    }
+    if(p==NULL){
+        return 0;
+    } 
+    else {
+        return i;
+    }
+
+}
+
+//insert
+bool ListInsert(LinkNode *&L, int i, ElemType e){   
+    LinkNode *p=L;   
+    int j=0;
+    
+    //find the jth element
+    while(p!=NULL&&j<i-1){
+        j++;
+        p=p->next;
+    }
+    
+    if(p==NULL){
+        return false;
+    }
+    //insert the new node
+    else{
+        LinkNode *s=(LinkNode*)malloc(sizeof(LinkNode));//new node to insert
+        s->data=e;
+        s->next=p->next;
+        p->next=s;
+        return true;
+    }
+    
+    
 }
