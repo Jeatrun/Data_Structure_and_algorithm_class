@@ -5,7 +5,13 @@ void AUB(LinkNode *LA, LinkNode *LB){
     int len_LB=ListLength(LB);
     ElemType e;
     //1.take every elem of B;
-    for(int i=1;i<len_LB;i++){
+    /*  
+        existed error:
+            for(int i=1;i<len_LB;i++)
+        fixed:
+            for(int i=1;i<=len_LB;i++)
+    */
+    for(int i=1;i<=len_LB;i++){
         GetElem(LB,i,e);
         
         //2.look if the same
