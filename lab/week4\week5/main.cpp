@@ -1,5 +1,5 @@
-#include "LinkList.h"
-
+#include "union2.h"
+//week5 AUB
 void AUB(LinkNode *LA, LinkNode *LB){
     int len_LA=ListLength(LA);
     int len_LB=ListLength(LB);
@@ -17,10 +17,12 @@ void AUB(LinkNode *LA, LinkNode *LB){
     DispList(LA);
 
 }
+//week6
 
 
 
-int main()
+
+int mathod1()
 {
     int A[5] = {1, 2, 3, 4, 5};
     LinkNode *L1;
@@ -32,5 +34,13 @@ int main()
     CreateListR(L2, B, sizeof(B)/sizeof(int));
     DispList(L2);
     AUB(L1, L2);
+    return 0;
+}
+void mathod_2(){
+
+
+}
+int main(){
+    mathod1();
     return 0;
 }
