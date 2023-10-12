@@ -1,4 +1,8 @@
+#include"LinkList.h"
 #include "union2.h"
+#include "union_3.h"
+#include "union_4.h"
+#include "Sort1.h"
 //week5 AUB
 void AUB(LinkNode *LA, LinkNode *LB){
     int len_LA=ListLength(LA);

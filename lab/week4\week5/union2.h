@@ -1,4 +1,4 @@
-#include"LinkList.h"
+
 void Union2(LinkNode *&LA,LinkNode *LB){
     LinkNode *rA=LA,*p;
     LinkNode *qA=LA->next,*qB=LB->next;
