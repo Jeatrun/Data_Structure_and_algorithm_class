@@ -1,17 +1,15 @@
 {
   "version": "0.2.0",
   "configurations": [
-  
-    
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "f:/Coding/Data Structure & algorithm class/lab/week4",
-      "program": "f:/Coding/Data Structure & algorithm class/lab/week4/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/workspace/Data_Structure_and_algorithm_class/lab/week4/week5",
+      "program": "/workspace/Data_Structure_and_algorithm_class/lab/week4/week5/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
