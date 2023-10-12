@@ -1,3 +1,4 @@
+#include"LinkList.h"
 //有序集A和B的并集 A=AUB，B不改变
 //要求初始的A和B是有序的 
 void Union_3(LinkList *&ha, LinkList *hb)	 

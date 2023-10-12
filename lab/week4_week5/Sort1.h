@@ -1,3 +1,4 @@
+#include"LinkList.h"
 //方法一：简单排序 
 void sort(LinkList *&L)		//单链表递增排序   O(n^2) 
 {

@@ -1,3 +1,4 @@
+#include"LinkList.h"
 //无序集合的并集，采用数组flag存放标志 
 void Union_4(LinkList *&LA,LinkList *LB)		
 {
