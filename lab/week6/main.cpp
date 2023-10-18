@@ -1,7 +1,8 @@
 #include <malloc.h>
-#include "Symbol_If_The_Same.h"
+#include "Is_symmetry.h"
+//#include "Symbol_If_The_Same.h"
 int main()
 {
-    exp2();
+    exp3();
     return 0;
 }
