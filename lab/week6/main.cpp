@@ -1,7 +1,7 @@
 #include <malloc.h>
-#include "exp1.h"
+#include "Symbol_If_The_Same.h"
 int main()
 {
-    exp1();
+    exp2();
     return 0;
 }

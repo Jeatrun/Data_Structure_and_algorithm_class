@@ -39,7 +39,7 @@ bool Push(SqStack *&S, int e)
     }
 }
 
-bool Pop(SqStack *&S, int &e)
+bool Pop(SqStack *&S, SElemType &e)
 {
     if (StackEmpty(S))
     {
