@@ -26,7 +26,8 @@ void exp3()
     }
     // 4.compair the stack from the top and the string from the first  to find whether is the same
     char pop_elem;
-    /*for (int j = 0; j < i; j++) /
+    /*
+    for (int j = 0; j < i; j++) /
     {
         Pop(stack, pop_elem);
         if (pop_elem == '\0')
@@ -43,7 +44,8 @@ void exp3()
                 return;
             }
     }
-    printf("the string is symmetry\n");*/
+    printf("the string is symmetry\n");
+    */
     for (int j = 0; j < i; j++) // Use 'j' instead of 'i' here, and compare until 'j' equals 'i'
     {
         Pop(stack, pop_elem);

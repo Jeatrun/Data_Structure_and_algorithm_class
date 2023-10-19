@@ -10,7 +10,7 @@
 void exp2()
 {
     // 1.create a string to compair
-    char str[str_SIZE+1] ="^%&*";
+    char str[str_SIZE+1] ="&*()";
 
     // 2.create a stack store what've typed in
     SqStack *stack;
