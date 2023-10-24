@@ -34,7 +34,7 @@ int mathod1()
     CreateListR(L1, A, 4);
     DispList(L1);
 
-    int B[8] = {2, 2, 0, 5, 2, 1, 2, 2};
+    int B[8] = {2,2,0,5,2,1,0,7};
     LinkNode *L2;
     CreateListR(L2, B, sizeof(B) / sizeof(int));
     DispList(L2);
