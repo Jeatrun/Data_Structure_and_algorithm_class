@@ -1,7 +1,7 @@
 #include <malloc.h>
 #include <stdio.h>
 
-typedef char* ElemType;
+typedef char *ElemType;
 typedef struct qnode
 
 {
@@ -61,8 +61,8 @@ void EnQueue(LinkQueue *&q, ElemType e)
     */
 
     p->data = (ElemType)malloc(100);
-    
-    //copy e to data
+
+    // copy e to data
     int i = 0;
     while (e[i] != '\0')
     {
