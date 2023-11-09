@@ -14,6 +14,7 @@ int main(){
     TsMatrix Ts;
     CreateMatrix(Ts,a);
     Disp(Ts);
-
+    Transpose(Ts);
+    Disp(Ts);
 
 }

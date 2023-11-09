@@ -11,8 +11,8 @@ void queueInit(Lane *L)
 
 void enQueue(Lane *L, Car *car)
 {
-    parkingSlot *p;
-    p = (parkingSlot *)malloc(sizeof(parkingSlot));
+    laneNode *p;
+    p = (laneNode *)malloc(sizeof(laneNode));
 
     // judge whether it's full
     if (queueLength(L) == MAX_LANE)
@@ -44,10 +44,10 @@ Car *deQueue(Lane *L)
 {
     if(queueEmpty(L)){
         printf("Lane is empty!\n");
-        return;
+        return 0;
     }
     else{
-        parkingSlot *p;
+        laneNode *p;
         p = L->front;
         L->front = L->front->next;
         return p->car;
@@ -58,7 +58,7 @@ int queueLength(Lane *L)
 {
         if (!queueEmpty(L))
         {
-        parkingSlot *p;
+        laneNode *p;
         p = L->front;
         int count = 0;
         while (p != NULL)

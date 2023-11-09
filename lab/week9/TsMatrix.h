@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include <cstdlib>
 #define MaxSize 100
 #define M 8
 #define N 8
@@ -19,7 +20,7 @@ typedef struct {
 }TsMatrix;
 
 void CreateMatrix(TsMatrix &m,ElemType a[M][N]) {
-     m.rows = 0;
+    m.rows = 0;
     m.cols = 0;
     m.nums = 0;
     for(int i=0;i<M;i++){
@@ -42,4 +43,11 @@ void Disp(TsMatrix m){
     for(int k=0;k<m.nums;k++){
         printf("\t %d \t %d \t %d \n",m.data[k].r,m.data[k].c,m.data[k].d);
     }
+}void Transpose(TsMatrix &m) {
+  //¿ìËÙ×ªÖÃ
+
+
+
+
+   m = t;
 }
