@@ -1,11 +1,10 @@
-#include "ParkingLot.h"
-
 // struct for lane,which is LinkQueue
 
-typedef struct Node{
-    Car* car;
+typedef struct Node
+{
+    Car *car;
     Node *next;
-}laneNode;
+} laneNode;
 
 typedef struct
 {
