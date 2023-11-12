@@ -7,7 +7,7 @@ typedef struct
     int i;
     int j;
 } mazeCord;
-void FindMaze(int xi, int yi, int xe, int ye, mazeCord path[], int *pathIndex, int mazeMap[M + 2][N + 2])
+/*void FindMaze(int xi, int yi, int xe, int ye, mazeCord path[], int *pathIndex, int mazeMap[M + 2][N + 2])
 {
     int curX = xi, curY = yi;
     // base case
@@ -69,11 +69,50 @@ void FindMaze(int xi, int yi, int xe, int ye, mazeCord path[], int *pathIndex, i
         }
     }
 }
-
+*/
 void Display(mazeCord path[], int pathIndex)
 {
     for (int i = 0; i < pathIndex; i++)
     {
         printf("[%d, %d]\n", path[i].i, path[i].j);
+    }
+}
+void FindMaze(int xi, int yi, int xe, int ye, mazeCord path[], int *pathIndex, int mazeMap[M + 2][N + 2])
+{
+    int curX = xi, curY = yi;
+    // base case
+    if (curX == xe && curY == ye)
+    {
+        // push the cordinate to the path stack
+        path[*pathIndex].i = curX;
+        path[*pathIndex].j = curY;
+        (*pathIndex)++;
+        // print the path
+        Display(path, *pathIndex);
+        printf("----------------\n");
+        (*pathIndex)--;
+        return;
+    }
+    else
+    {
+        int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}; // right, down, left, up
+        for (int i = 0; i < 4; i++)
+        {
+            int nextX = curX + directions[i][0];
+            int nextY = curY + directions[i][1];
+            if (mazeMap[nextX][nextY] == 0)
+            {
+                // push the cordinate to the path stack
+                path[*pathIndex].i = curX;
+                path[*pathIndex].j = curY;
+                (*pathIndex)++;
+                // change the path to be -1
+                mazeMap[curX][curY] = -1;
+                FindMaze(nextX, nextY, xe, ye, path, pathIndex, mazeMap);
+                // restore the path and the mazeMap
+                mazeMap[curX][curY] = 0;
+                (*pathIndex)--;
+            }
+        }
     }
 }
