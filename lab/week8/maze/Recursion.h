@@ -13,7 +13,7 @@ void FindMaze(int xi, int yi, int xe, int ye, mazeCord path[], int *pathIndex, i
     // base case
     if (curX == xe && curY == ye)
     {
-        // push the cordinate to the path
+        // push the coordinate to the path
         path[*pathIndex].i = curX;
         path[*pathIndex].j = curY;
         (*pathIndex)++;
