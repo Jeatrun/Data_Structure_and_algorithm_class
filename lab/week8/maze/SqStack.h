@@ -1,13 +1,17 @@
+#ifndef SQSTACK_H
+#define SQSTACK_H
+
 /*SqStack.h*/
 #include <malloc.h>
 #define MAXSIZE 100
 typedef int SElemType;
 
-typedef struct {
+typedef struct
+{
     SElemType x;
     SElemType y;
 
-}data;
+} data;
 
 typedef struct
 {
@@ -31,7 +35,7 @@ bool StackEmpty(SqStack *S)
     return (S->top == -1);
 }
 
-bool Push(SqStack *&S, int x,int y)
+bool Push(SqStack *&S, int x, int y)
 {
     if (S->top == MAXSIZE - 1)
     {
@@ -41,13 +45,13 @@ bool Push(SqStack *&S, int x,int y)
     else
     {
         S->top++;
-        S->mazecor[S->top].x =x ;
-        S->mazecor[S->top].y =y;
+        S->mazecor[S->top].x = x;
+        S->mazecor[S->top].y = y;
         return true;
     }
 }
 
-bool Pop(SqStack *&S, int &x,int &y)
+bool Pop(SqStack *&S, int &x, int &y)
 {
     if (StackEmpty(S))
     {
@@ -56,15 +60,15 @@ bool Pop(SqStack *&S, int &x,int &y)
     }
     else
     {
-        S->mazecor[S->top].x =x ;
-        S->mazecor[S->top].y =y;
+        S->mazecor[S->top].x = x;
+        S->mazecor[S->top].y = y;
 
         S->top--;
         return true;
     }
 }
 
-bool GetTop(SqStack *S, int &x,int &y)
+bool GetTop(SqStack *S, int &x, int &y)
 {
     if (StackEmpty(S))
     {
@@ -73,8 +77,8 @@ bool GetTop(SqStack *S, int &x,int &y)
     }
     else
     {
-        x=S->mazecor[S->top].x ;
-        y=S->mazecor[S->top].y;
+        x = S->mazecor[S->top].x;
+        y = S->mazecor[S->top].y;
 
         return true;
     }
@@ -112,3 +116,4 @@ void DisplayStack(SqStack *S)
         printf("[%d,%d]", S->mazecor[i].x, S->mazecor[i].y);
     }
 }
+#endif /* SQSTACK_H */
