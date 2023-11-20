@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #define MAX 100
 #define INFINITY 1000000000
+
+typedef int VertexType;
+
 typedef struct
 {
-    char verxs[MAX];
+    VertexType verxs[MAX];
     int adMatrix[MAX][MAX];
     int vNum, eNum;
 } mgraph;
@@ -33,7 +36,7 @@ void createMGraph(mgraph *&G)
     for (int i = 0; i < G->vNum; i++)
     {
         printf("please enter the %d th vex's value: ", i + 1);
-        scanf(" %c", &G->verxs[i]);
+        scanf(" %d", &G->verxs[i]);
     }
     // initiate the matrix
     initMatrix(G);
@@ -55,7 +58,7 @@ void printMGraph(mgraph *G)
         {
             if (G->adMatrix[i][j] == INFINITY)
             {
-                printf("∞ ");
+                printf("% ");
             }
             else
             {
