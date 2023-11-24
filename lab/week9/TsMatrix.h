@@ -91,6 +91,7 @@ void SparseToDense(TsMatrix m)
             b[i][j] = 0;
         }
     }
+<<<<<<< HEAD
 
     // 将稀疏矩阵的值填入二维矩阵
     for (int k = 0; k < m.nums; k++)
@@ -98,3 +99,37 @@ void SparseToDense(TsMatrix m)
         b[m.data[k].r][m.data[k].c] = m.data[k].d;
     }
 }
+=======
+}void FastTranspose(TsMatrix om,TsMatrix &tm) {
+    int num[MaxSize],cpot[MaxSize];
+    tm.cols=om.rows;
+    tm.rows=om.cols;
+    tm.nums=om.nums;
+    if(tm.nums==0){
+        printf("This matrix =0!\n");
+    }
+    else{
+        //init the num[]
+        for(int col=0;col<om.cols;col++){
+            num[col]=0;
+        }
+        //get the non-0 elem of every col fot the om
+        for(int col=0;col<om.cols;col++){
+            num[om.data[col].c]++;
+        }
+        int col;
+        for(cpot[0]=0,col=1;col<om.cols;col++){
+            cpot[col]=cpot[col-1]+num[col-1];
+        }
+        for(int p=0;p<om.nums;p++){
+            int col=om.data[p].c;
+            int q=cpot[col];
+            tm.data[q].r=om.data[p].r;
+            tm.data[q].c=om.data[p].c;
+            tm.data[q].d=om.data[p].d;
+            cpot[col]++;
+        }
+    }
+
+}
+>>>>>>> 31bfad025ad2614d3ebafd90e9758ff17eb84921
