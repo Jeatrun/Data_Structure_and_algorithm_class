@@ -1,21 +1,27 @@
 
 #include "BTNode.h"
 
-int main(int argc, char** argv) {
-	
+int main(int argc, char **argv)
+{
+
 	char str[] = "A(B(D(,G)),C(E,F))";
 	BTNode *T;
-	CreateBTree(T,str);
+	CreateBTree(T, str);
 	DispBTree(T);
-	printf("\nthe number of nodes :%d",nodeCountReturn(T));
-	int m=0;
-	nodeCountQuotation(T,m);
-	printf("\n the number of nodes :%d",m);
+	printf("\nthe number of nodes :%d", nodeCountReturn(T));
+	int m = 0;
+	nodeCountQuotation(T, m);
+	printf("\n the number of nodes :%d", m);
+
+	int leavesCount = 0;
+	countLeaves(T, leavesCount);
+	printf("\n the number of leaves :%d", leavesCount);
+
 	nodeCountG(T);
-	printf("\n the number of nodes :%d",countG);
-	int countNL=0;
-	countNodesAtLayerK(T, 1, 3,countNL);
-	printf("\n the number of nodes at layer3 :%d\n",countNL);
+	printf("\n the number of nodes :%d", countG);
+	int countNL = 0;
+	countNodesAtLayerK(T, 1, 3, countNL);
+	printf("\n the number of nodes at layer3 :%d\n", countNL);
 
 	preorder(T);
 	printf("\n");
@@ -23,6 +29,6 @@ int main(int argc, char** argv) {
 	printf("\n");
 	postorder(T);
 	printf("\n");
-	
+
 	return 0;
 }
