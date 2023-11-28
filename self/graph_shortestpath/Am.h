@@ -50,7 +50,10 @@ void createMGraph(mgraph *&G)
         G->adMatrix[v1][v2] = w;
     }
 }
-void printMGraph(mgraph *G)
+
+
+
+    void printMGraph(mgraph *G)
 {
     for (int i = 0; i < G->vNum; i++)
     {

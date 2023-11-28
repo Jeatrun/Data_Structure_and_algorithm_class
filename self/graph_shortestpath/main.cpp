@@ -2,7 +2,7 @@
 
 int main()
 {
-    VertexType sv = 0, ev = 4;
+    int sv = 0, ev = 4;
     mgraph *G;
     createMGraph(G);
     findShortestPath(G, sv, ev);
