@@ -61,7 +61,7 @@ void createMGraph(mgraph *&G)
         {
             if (G->adMatrix[i][j] == INFINITY)
             {
-                printf("% ");
+                printf("%");
             }
             else
             {
