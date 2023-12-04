@@ -35,8 +35,10 @@ void CreateBTree(BTNode *&b, char *str)
 			p = (BTNode *)malloc(sizeof(BTNode));
 			p->data = ch;
 			p->lchild = p->rchild = NULL;
+
 			if (b == NULL)
 				b = p;
+
 			else
 			{
 				switch (k)
@@ -49,6 +51,9 @@ void CreateBTree(BTNode *&b, char *str)
 					break;
 				}
 			}
+			free(p);
+			
+			p = NULL;
 		}
 		j++;
 		ch = str[j];
