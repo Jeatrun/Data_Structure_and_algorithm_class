@@ -1,21 +1,23 @@
-#include"huffmanTree.h"
+#include "huffmanTree.h"
 
-int main(){
-    char c[]="abcdef";
-    int w[]={8,3,4,6,5,5};
-    int num =6;
-    htNode HT[2*num-1];
-
-    //initiation
-    for(int i=0;i<num;i++){
-        HT[i].data=c[i];
-        HT[i].weight=w[i];
-       
+int main()
+{
+    char c[] = "abcdef";
+    char code[] = "111";
+    int w[] = {6, 3, 4, 8, 5, 5};
+    int num = 6;
+    htNode HT[2 * num - 1];
+    hCode hc[num];
+    // initiation
+    for (int i = 0; i < num; i++)
+    {
+        HT[i].data = c[i];
+        HT[i].weight = w[i];
     }
-    createHT(HT, num,6);
+    createHT(HT, num);
 
-    printf("haffmantree:\n");
-    for(int j=0;j<2*num-1;j++){
-        printf("%c %lf\n",HT[j].data,HT[j].weight);
-    }
+    htEncode(HT, hc, num);
+
+    // dispHcode(HT, hc, num);
+    htDecode(HT, num, code);
 }

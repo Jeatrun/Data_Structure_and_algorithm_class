@@ -1,9 +1,7 @@
 
 #include "BTNode.h"
 
-int main(int argc, char **argv)
-{
-
+void test01(){
 	char str[] = "A(B(D(,G)),C(E,F))";
 	BTNode *T;
 	CreateBTree(T, str);
@@ -23,12 +21,26 @@ int main(int argc, char **argv)
 	countNodesAtLayerK(T, 1, 3, countNL);
 	printf("\n the number of nodes at layer3 :%d\n", countNL);
 
-	preorder(T);
-	printf("\n");
-	inorder(T);
-	printf("\n");
-	postorder(T);
-	printf("\n");
 
+}
+int main()
+{
+	char str[] = "A(B(D(,G)),C(E,F))";
+	BTNode *T;
+	CreateBTree(T, str);
+	// printf("pre order:");
+	// preorder(T);
+	// printf("\n");
+	// printf("in order:");
+	// inorder(T);
+	// printf("\n");
+	// printf("post order:");
+	// postorder(T);
+	// printf("\n");
+	printf("larger than C:");
+	display_bigger_C(T);
+	printf("\n");
+	printf("smaller than D:");
+	display_smaller_D(T);
 	return 0;
 }

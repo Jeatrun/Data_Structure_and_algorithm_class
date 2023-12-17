@@ -51,9 +51,6 @@ void CreateBTree(BTNode *&b, char *str)
 					break;
 				}
 			}
-			free(p);
-			
-			p = NULL;
 		}
 		j++;
 		ch = str[j];
@@ -199,4 +196,36 @@ void postorder(BTNode *bt)
 		postorder(bt->rchild);
 		printf("%c", bt->data);
 	}
+}
+
+void display_bigger_C(BTNode *bt){
+	if (bt == NULL)
+	{
+		return;
+	}
+	else if(bt->data>'C'){
+		printf("%c",bt->data);
+	}
+	else{
+		printf("*");
+	}
+	display_bigger_C(bt->lchild);
+	display_bigger_C(bt->rchild);
+}
+void display_smaller_D(BTNode *bt)
+{
+	if (bt == NULL)
+	{
+		return;
+	}
+	else if (bt->data < 'D')
+	{
+		printf("%c", bt->data);
+	}
+	else
+	{
+		printf("*");
+	}
+	display_smaller_D(bt->lchild);
+	display_smaller_D(bt->rchild);
 }
