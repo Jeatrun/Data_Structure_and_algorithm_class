@@ -74,50 +74,52 @@ void disp(adList *adlist){
 }
 int visited[MAX];
 
-void DFS(adList *adlist ,int sp){    
-    edgeNode *p;
-    //1. start at the start position sp
-    visited[sp]=1;
-    printf("%c(%d)",adlist->adList[sp].info,sp);
-    p=adlist->adList[sp].firstArc;
-    while(p!=NULL){
-        if( visited[p->adjvertex]==0){
-            DFS(adlist,p->adjvertex);
+void find_DFS(adList *adList, int ap, bool visited[])
+{
+    edgeNode *lp; // list position
+    lp=adList->adList[ap].firstArc;
+    // 2.print this vertex;
+    visited[ap] = true;
+    printf("%c", adList->adList[ap].info);
+    // 3.visit every unvisited vertex from the vNode array
+    while(lp!=NULL){
+        if (visited[lp->adjvertex] == false)
+        {
+            // 4.set the current list position as the unvisited vertex;
+            find_DFS(adList, lp->adjvertex, visited);
         }
-        p=p->next;
+        lp=lp->next;
+    }
+    // 5.if all nodes in Vnode array have been visited,return to the previous list position
+    return;
+
+}
+
+void DFS(adList *adlist,int sv){
+    //definition
+    bool visited[adlist->vertexNum];
+    //initialization
+    for(int i=0;i<adlist->vertexNum;i++){
+        visited[i] = false;
+        
+    }
+    // 1.let the list position start at the start vertex sv from the adlist
+    find_DFS(adlist, sv, visited);
+}
+void DFS1(adList *adlist){
+    // definition
+    int i;
+    bool visited[adlist->vertexNum];
+    // initialization
+    for (int i = 0; i < adlist->vertexNum; i++)
+    {
+        visited[i] = false;
+    }
+
+    for (i = 0;i<adlist->vertexNum;i++){
+        if (visited[i] == false)
+        {
+            find_DFS(adlist, i,visited);
+         }
     }
 }
-
-void BFS(adList *adlist ,int sp){
-    int i,w;
-    edgeNode *p;
-    LiQueue *queue;
-    InitQueue(queue);
-    //1. start at the start position sp
-    visited[sp]=1;
-    printf("%c(%d)",adlist->adList[sp].info,sp);
-    //p=adlist->adList[sp].firstArc;
-    enQueue(queue, sp);
-    //print all the adNodes out
-    while(!QueueEmpty(queue))   
-      {      
-        deQueue(queue,w);
-        p=adlist->adList[w].firstArc;
-        while(p!=NULL)
-        {
-            if(visited[p->adjvertex] == 0)
-            {	  
-                printf("%c(%d)",adlist->adList[sp].info,sp);
-                visited[p->adjvertex]=1;
-                enQueue(queue,p->adjvertex);
-            }
-            p=p->next;
-        }
-      }
-}
-void BFS1 (adList *G)
-{      int i;
-        for(i=0;i<G->edgeNum;i++)
-	   if(visited[i]==0) BFS (G, i);
-}
-

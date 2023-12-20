@@ -127,12 +127,13 @@ void htDecode(htNode ht[], int n, char *code)
    while (cd != '\0')
    {
       // 3.if code's digit cd ==0,set the current cp to the child we found
+
       if (cd == '0')
       {
          cp = ht[cp].lchild;
       }
       // 4.otherwise set to  its rchild
-      else
+      else if (cd == '1')
       {
          cp = ht[cp].rchild;
       }
